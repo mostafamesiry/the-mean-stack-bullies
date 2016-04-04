@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Air France</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/Homestyle.css">
 	<link rel="stylesheet" href="css/animate.css">
-    
+
     <script src="./js/wow.min.js"></script>
     <script src="./js/jquery-2.2.0.min.js"></script>
     <script src="./js/angular.min.js"></script>
@@ -19,7 +19,7 @@
     <script src="./services/reservationCancelationSrv.js"> </script>
     <script src="./services/flightsSrv.js"> </script>
     <script src="./controllers/controller.js "></script>
-	
+
 </head>
 <body ng-app="mainApp" ng-controller="myCtrl"  >
 
@@ -29,7 +29,7 @@
  <div id="nav" class="collapse navbar-collapse">
   <div class="container">
     <div class="nav navbar-nav">
-     
+
       <li><img id="logo" src="./images/logo2.svg" width="200"></li>
     </div>
     <ul id="navBarStyle" class="nav navbar-nav navbar-right" ng-controller="ScrollController  ">
@@ -39,14 +39,14 @@
       <li class="btn-lg"><a ng-click="gotoBottom()">History</a></li>
        <li class="btn-lg"><a href="#">Team</a></li>
       <li class="btn-lg"><a href="contact.html">Contact Us</a></li>
-       
+
     </ul>
   </div>
 </div>
 
 
-	<div id="topImage" > 
-	
+	<div id="topImage" >
+
    <div id="home-tabling-container" class="col-xs-12 col-md-10 col-lg-8" ng-controller="reservationsController">
    <div id="bookingForm" ng-show="showMe" >
 
@@ -54,7 +54,7 @@
    <div id="bookingSection" ng-show="showBooking" ng-controller="bookingCtrl" >
 
 	<div>
-		<div ng-model="bookings">	
+		<div ng-model="bookings">
 		<h1>Book a flight!</h1>
 		<div>
 		<div class="col-xs-2">
@@ -116,15 +116,15 @@
 
 
 
-		
+
 
 
 		<div class="col-xs-1">
-		</div>	
+		</div>
 
 		<div  class="col-xs-4">
-			
-				<div >	
+
+				<div >
 					<label>To</label>
 						<input name="destinationAirports"
                 id="destinationAirports"
@@ -134,31 +134,31 @@
                 uib-typeahead="airport.name+' ('+airport.iata+')' for airport in airports | airportsFilters:selectedDestination| limitTo:10"
                 class="form-control",
                 typeahead-on-select="SetDestinationAirport($item.iata)">
-				</div>	
+				</div>
 
 
-					
-				<div ng-hide="hidedate">	
+
+				<div ng-hide="hidedate">
 					<label>Return Date</label>
 					<input type="date" class="form-control" name="name" placeholder="Departure Date">
-				</div>	
+				</div>
 
-				<div ng-hide="!hidedate">	
+				<div ng-hide="!hidedate">
 					<label> </label>
 					<br>
 					<label> </label>
 					<br>
 					<br>
 
-					
-						
-				
-				</div>	
 
-				
+
+
+				</div>
+
+
 
 				<div class="col-xs-1">
-				</div>	
+				</div>
 
 
 				<div>
@@ -174,36 +174,36 @@
 					</select>
 				</div>
 
-				
 
 
-					
+
+
 				<div >
 					<label>Email</label>
 					<input type="email" class="form-control">
-				</div>	
-
-
-				
-		</div>
+				</div>
 
 
 
 		</div>
-	</div>	
-</div>	
+
+
+
+		</div>
+	</div>
+</div>
 <div id="timeTableSection" ng-show="showBooking2" ng-controller="bookingCtrl" >
    	  <div ng-controller="bookingCtrl"  data-ng-init="changeTable()" >
         <div ng-hide="hide">
-      
+
           <div ng-class="image" ng-style="{'background': 'url('+image+') no-repeat ','background-size':'70% 100%'}">
             <div class="col-xs-5"  >
                 <lable style="font-family: arial;color: red">
-                    Destination: 
+                    Destination:
                 </lable>
                 <input class="form-control" id="tag"type="text" ng-click="changeTable()" ng-model="destination" typeahead-on-select="changeTable($item.iata)"  uib-typeahead="airport.name+' ('+airport.iata+')' for airport in airports | airportsFilters:destination| limitTo:10" placeholder="Destination: ">
 
-                
+
             </div>
 
 
@@ -213,7 +213,7 @@
               </lable>
 
               <input class="form-control" id="dateTextBox" type="date" ng-model="dateString">
-            
+
               <button class="btn-primary" ng-click="filterTableDate()">Filter By Date</button>
             </div>
               <br>
@@ -236,7 +236,7 @@
 
           <table id="table" class="table table-striped" ng-hide="hideTable">
           <!-- /  fillTable(destination); -->
-            <tr class="row" >  
+            <tr class="row" >
                <td>Type</td>
                <td>Aircraft</td>
                 <td>Capacity</td>
@@ -248,7 +248,7 @@
             </tr>
 
 
-            <tr class="row" ng-repeat="flight in arr | limitTo:limit | orderBy:'date'" ng-animate=" 'animate' ">  
+            <tr class="row" ng-repeat="flight in arr | limitTo:limit | orderBy:'date'" ng-animate=" 'animate' ">
             <td>{{flight.flightNumber.type}}</td>
               <td>{{flight.aircraft}}</td>
             <td>{{flight.capacity}}</td>
@@ -267,20 +267,21 @@
     </div>
 
     </div>
-</div>	
+</div>
 <!-- messend -->
+<!-- //////// -->
 <!-- geddostart -->
 
 <div id="timeTableSection" ng-show="showBooking3" ng-controller="bookingCtrl" >
    	  <div ng-controller="bookingCtrl"  data-ng-init="changeTable()" >
         <div ng-hide="hide">
-      
+
           <div ng-class="image" ng-style="{'background': 'url('+image+') no-repeat','background-size':'70% 100%'}">
             <div class="col-xs-5"  >
-                
-                
 
-                
+
+
+
             </div>
 
 
@@ -290,7 +291,7 @@
               </lable>
 
               <input class="form-control" id="dateTextBox" type="date" ng-model="dateString">
-            
+
               <button class="btn-primary" ng-click="filterTableDate()">Filter By Date</button>
             </div>
               <br>
@@ -307,11 +308,11 @@
               <br>
             </div>
 
-        
+
 
           <table id="table" class="table table-striped" >
           <!-- /  fillTable(destination); -->
-            <tr class="row" >  
+            <tr class="row" >
                <td>Type</td>
                <td>Aircraft</td>
                 <td>Capacity</td>
@@ -323,7 +324,7 @@
             </tr>
 
 
-            <tr class="row" ng-repeat="flight in arr | limitTo:limit | orderBy:'date'" ng-animate=" 'animate' ">  
+            <tr class="row" ng-repeat="flight in arr | limitTo:limit | orderBy:'date'" ng-animate=" 'animate' ">
             <td>{{flight.flightNumber.type}}</td>
               <td>{{flight.aircraft}}</td>
             <td>{{flight.capacity}}</td>
@@ -350,10 +351,10 @@
 <!-- Start timeTable Form -->
 
   <div ng-show="timeTableshow" id="timeTableShow">
-  
+
 
   </div>
-  
+
 
 <!-- End Booking Form -->
  <!-- Start Manage Booking  -->
@@ -363,12 +364,12 @@
 
           <!-- Form Name -->
           <center><h1>Reservation Details</h1></center>
-          <br>	
+          <br>
 
           	<floatlabel>
           <!-- Text input-->
           <div class="formgroup">
-            <label id="labelReference" for="textinput" >Please Enter your reference number</label>  
+            <label id="labelReference" for="textinput" >Please Enter your reference number</label>
             <div class="">
               <input id="textinput" name="textinput" placeholder="Reference Number" ng-model="enteredReferenceNum" type="text">
             </div>
@@ -407,14 +408,14 @@
           </div>
           <!-- Button -->
        </div>
-        
+
         </fieldset>
       </form>
     </div>
  <!--End Manage Booking-->
    	<button id="closeButton" class ="glyphicon glyphicon-remove" ng-click="close()"></button>
    	<p id="closeButtonText">close</p>
-   </div> 
+   </div>
    <ul id="home-tabling-list" class="nav nav-tabs wow slideInLeft" data-wow-duration="2.5s" style="visibility: visible; animation-duration: 2.5s; animation-name: slideInLeft;">
                                     <li class="" ng-click="click1()"><a data-toggle="tab" href="#"><span class="glyphicon glyphicon-plane"></span><span class="tabText">
                                         Book</span></a></li>
@@ -427,17 +428,17 @@
 
                                         </ul>
    </div>
-   <br>	
+   <br>
      <div class="row" >
 				  <div class="text-center wow fadeIn" data-wow-delay="0.2s">
 				  		<p id="paragraphScroll" class=" wow fadeIn" data-wow-delay="1s">scroll down to see more</p>
 				  		<div id="scroll"  class="glyphicon glyphicon-menu-down wow bounce " data-wow-delay="1s" data-wow-iteration="200" ng-click="gotoBottom()"></div>
-				  		
+
 
 				  </div>
 			  </div>
-    
-			
+
+
 		 </div>
 		 <h2 id="welcomeTextDown" class=" wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.2s">
 			Welcome to Air France
@@ -446,25 +447,25 @@
 		<h5  class="wow fadeIn" data-wow-delay="0.2s"id="welcomeText2">We are happy to serve you</h5>
 
 	</section>
-  </div>  
+  </div>
 <!--END The top image background -->
 <!-- Start payment Section -->
 <div id="mainPay" ng-show="showPay" class="wow fadeInUpBig">
   <div class="whole">
-    <form class="form-horizontal" role="form"  ng-app="myApp" ng-controller="validateCtrl" 
+    <form class="form-horizontal" role="form"  ng-app="myApp" ng-controller="validateCtrl"
         name="myForm"  novalidate>
-       
+
        <h2>Payment Form:</h2>
-     
-      
+
+
       <div id="check">
         <input type="radio" name="oneRound" value="visa" >VISA </input>
         <input type="radio" name="oneRound" value="masterCard" >Master Card</input>
       </div>
       <br>
-      <br>    
-    
-     
+      <br>
+
+
       <div id="cardName" class="form-group">
         <label class="control-label col-sm-2" for="email">Cardholder Name:</label>
         <div class="col-xs-4">
@@ -473,7 +474,7 @@
         <span ng-show="myForm.holderName.$error.required">Name is required.</span>
       </div>
 
-     
+
      <div id="cardNumber" class="form-group">
         <label class="control-label col-sm-2" for="email">Card No.:</label>
         <div class="col-xs-4">
@@ -482,7 +483,7 @@
         <span ng-show="myForm.CardNumber.$error.required">required.</span>
     </div>
 
-     
+
     <div id="cvv"class="form-group">
       <label id="cvvText" class="control-label col-sm-2" for="pwd">CVV:</label>
       <div class="col-xs-4">
@@ -490,7 +491,7 @@
       </div>
         <span ng-show="myForm.CVV.$error.required">required.</span>
     </div>
-      
+
     <div id="date"class="form-inline">
       <label> Expiry Date:  </label>
       <select id="expiryDate" class="form-control" placeholder="Departure Date" >
@@ -507,7 +508,7 @@
         <option>November</option>
         <option>December</option>
        </select>
-      
+
       <select class="form-control" >
         <option>2016</option>
         <option>2017</option>
@@ -517,17 +518,17 @@
         <option>2021</option>
         <option>2022</option>
       </select>
-    
-          
+
+
   </div>
-  
+
 
 </form>
 
   <!-- dropdown -->
-  
+
     <button id="btnConfirm" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Confirm</button>
-  
+
 
 </div>
 </div>
@@ -538,7 +539,7 @@
 	<div class="container">
 	<div class="row">
 
- 
+
 		<div id="beginning" class=" historyDivs col-lg-3 col-sm 12 wow fadeInLeftBig"  data-wow-offset="100" data-wow-duration="1.5s">
 
 			<div id="data2" >
@@ -587,12 +588,12 @@
 				<div id="maturityText" class=" wow fadeInUpBig"  data-wow-delay ="0.3s" data-wow-offset="1" data-wow-duration="1s">
 				<h3>1970-1989 MATURITY</h3>
 					<p>Air France entered the era of mass transport. Faced with competition and oil crises, the airline dealt with the turbulence and gave wings to one of the most beautiful birds in history - Concorde..</p>
-					
-				</div>		
+
+				</div>
 </div>
 			</div>
 
-		
+
 		<div id="renewal" class=" historyDivs col-lg-3 col-sm 12 wow fadeInRightBig"  data-wow-offset="100" data-wow-duration="2s">
       <div id="data2" >
 			<div id="renewalText" class=" wow fadeInUpBig"  data-wow-delay ="0.3s" data-wow-offset="1" data-wow-duration="1s">
@@ -612,16 +613,16 @@
 
 	</div>
 </div>
-	
 
-	
+
+
 
 </section>
 <!--End History section-->
 
 <!--Start section Statistics-->
 	<section id="stats" class="stats text-center">
-		<div id="data" > 
+		<div id="data" >
 			 <div class="container">
 				  <div class="row">
 					  <div class="text-center wow fadeIn" data-wow-delay="0.2s">
@@ -643,7 +644,7 @@
 					  	<h5>34,562</h5>
 					  </div>
 			  	</div>
-			</div>	
+			</div>
 
 		 </div>
 
@@ -654,9 +655,9 @@
 
 <!--Start Section Features-->
 	<section id="team" class="team text-center ">
-	<div id="data2" > 
+	<div id="data2" >
 		<div class="container">
-			
+
 			<div class="row" >
       <img id="img1" ng-click="tag()"class="img-circle wow fadeInLeft" data-wow-duration="0.5s" src="./images/paris.jpg" width="150" height="150">
     <div id="tagText"ng-show="showTag">
@@ -670,13 +671,13 @@
       <img id="img6" class="img-circle  wow fadeInRight" data-wow-duration="1s"src="./images/paris.jpg" width="150" height="150">
       <img id="img7" class="img-circle  wow fadeInRight" data-wow-duration="1.5s"src="./images/paris.jpg" width="150" height="150">
       <img id="img8" class="img-circle  wow fadeInRight" data-wow-duration="2s"src="./images/paris.jpg" width="150" height="150">
-      
+
 			</div>
       </div>
 		</div>
-	
+
 	</section>
-<!--End Section Features--> 
+<!--End Section Features-->
 </div>
 <script>
 	new WOW().init();
