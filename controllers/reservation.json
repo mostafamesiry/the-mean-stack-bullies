@@ -1,0 +1,18 @@
+[{
+
+    "FlightNum":"1408",
+    "Origin":"Lyon",
+    "Airport":"Lyon-Saint Exupéry Airport", 
+    "Destination":"Munchen", 
+    "Terminal":"4", 
+    "Gate":"201",
+    "Date":"22/12/2016", 
+    "DepartureTime": "12:30:00", 
+    "DepTimeHours":"12",
+    "DepTimeMinutes":"30",
+    "Duration":"4", 
+    "SeatClass":"Economy",
+    "SeatNum":"H-11"
+
+
+}]
