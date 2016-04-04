@@ -170,7 +170,7 @@ app.controller('bookingCtrl', function($scope, $location,airportSrv,FlightsSrv) 
        $scope.arr = result;
   }
   $scope.changeTable=function(iata){
-    
+    $scope.hideTable=false;
     if(iata==undefined){
       $scope.destination=null;
           $scope.hide=false;
